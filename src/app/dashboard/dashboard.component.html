@@ -2,7 +2,7 @@
   <div class="dashboard-heading">
     <div class="dashboard-title">
       <h1 class="title">Invoices</h1>
-      <p class="description">There are 7 total invoices</p>
+      <p class="description">There are {{ totalInvoices() }} total invoices</p>
     </div>
     <div class="dashboard-buttons">
       <mat-form-field>
@@ -21,7 +21,8 @@
       </button>
     </div>
   </div>
-  <div class="dashboard-content" *ngFor="let invoice of invoices">
+  @for (invoice of filteredInvoices(); track invoice.invoiceNumber) {
+  <div class="dashboard-content">
     <div class="invoice-card-wrapper">
       <div class="invoice-number">
         <span>#</span>
@@ -30,7 +31,7 @@
       <div class="due-date">Due {{ invoice.dueDate }}</div>
       <div class="name">{{ invoice.name }}</div>
       <div class="amount">
-        <span>$</span>
+        <span>£</span>
         {{ invoice.amount }}
       </div>
       <div class="status-wrapper" [ngClass]="invoice.status.toLowerCase()">
@@ -42,4 +43,5 @@
       </div>
     </div>
   </div>
+  }
 </div>
