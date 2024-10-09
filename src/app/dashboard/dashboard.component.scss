@@ -1,0 +1,154 @@
+.dashboard-wrapper {
+  height: 100vh;
+  width: calc(100vw - 103px);
+  background-color: #f2f2f2;
+  overflow: scroll;
+  color: #0c0e16;
+
+  // inovice cards heading
+  .dashboard-heading {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 64px;
+    padding-bottom: 32px;
+
+    .dashboard-title {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      .title {
+        font-size: 36px;
+        font-weight: 700;
+        letter-spacing: -1.13px;
+        margin: 0;
+      }
+      .description {
+        font-size: 13px;
+        color: #888eb0;
+        letter-spacing: -0.1px;
+        margin: 0;
+      }
+    }
+    .dashboard-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      font-weight: 700;
+
+      .invoice-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 150px;
+        height: 48px;
+        border-radius: 24px;
+        border: 0px;
+        background-color: #9277ff;
+        color: white;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: -0.25px;
+
+        .icon-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: white;
+          color: #9277ff;
+          height: 32px;
+          width: 32px;
+          border-radius: 50px;
+          .button-icon {
+            height: 16px;
+            font-size: 16px;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+  // inovice cards
+  .dashboard-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 16px;
+
+    .invoice-card-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: white;
+      width: 730px;
+      height: 72px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 8px;
+
+      .invoice-number {
+        display: flex;
+        gap: 1px;
+        font-size: 15px;
+        font-weight: 700;
+
+        span {
+          color: #7e88c3;
+        }
+      }
+      .due-date {
+        color: #7e88c3;
+      }
+      .name {
+        color: #858bb2;
+      }
+      .amount {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .status-wrapper {
+        width: 104px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        &.paid {
+          background-color: rgba(51, 214, 159, 0.1);
+          color: #33d69f;
+        }
+
+        &.pending {
+          background-color: rgba(255, 143, 0, 0.1);
+          color: #ff8f00;
+        }
+
+        &.draft {
+          background-color: rgba(55, 59, 83, 0.1);
+          color: #373b53;
+        }
+        .status-icon {
+          width: 8px;
+          height: 8px;
+          font-size: 8px;
+        }
+        .status-title {
+          font-size: 15px;
+          font-weight: 700;
+        }
+      }
+      .arrow-icon {
+        height: 20px;
+        width: 20px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #7c5dfa;
+        cursor: pointer;
+      }
+    }
+  }
+}

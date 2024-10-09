@@ -1,0 +1,45 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard-heading">
+    <div class="dashboard-title">
+      <h1 class="title">Invoices</h1>
+      <p class="description">There are 7 total invoices</p>
+    </div>
+    <div class="dashboard-buttons">
+      <mat-form-field>
+        <mat-label>Filter by status</mat-label>
+        <mat-select [formControl]="statuses" multiple>
+          @for (status of statusesList; track status) {
+          <mat-option [value]="status">{{ status }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <button class="invoice-button">
+        <div class="icon-wrapper">
+          <mat-icon class="button-icon">add</mat-icon>
+        </div>
+        New Invoice
+      </button>
+    </div>
+  </div>
+  <div class="dashboard-content" *ngFor="let invoice of invoices">
+    <div class="invoice-card-wrapper">
+      <div class="invoice-number">
+        <span>#</span>
+        {{ invoice.invoiceNumber }}
+      </div>
+      <div class="due-date">Due {{ invoice.dueDate }}</div>
+      <div class="name">{{ invoice.name }}</div>
+      <div class="amount">
+        <span>$</span>
+        {{ invoice.amount }}
+      </div>
+      <div class="status-wrapper" [ngClass]="invoice.status.toLowerCase()">
+        <mat-icon class="status-icon">circle</mat-icon>
+        <span class="status-title">{{ invoice.status }}</span>
+      </div>
+      <div class="arrow">
+        <mat-icon class="arrow-icon">chevron_right</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

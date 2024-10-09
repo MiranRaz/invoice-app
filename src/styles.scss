@@ -1,13 +1,21 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap");
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
+
+$custom-typography: mat.define-typography-config(
+  $font-family: '"League Spartan", sans-serif',
+  $headline-1: mat.define-typography-level(32px, 48px, 700),
+  $body-1: mat.define-typography-level(16px, 24px, 400),
+);
+
+@include mat.all-component-typographies($custom-typography);
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -20,23 +28,52 @@ $invoice-app-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$invoice-app-theme: mat.define-light-theme((
-  color: (
-    primary: $invoice-app-primary,
-    accent: $invoice-app-accent,
-    warn: $invoice-app-warn,
-  ),
-  typography: mat.define-typography-config(),
-  density: 0
-));
-
+$invoice-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $invoice-app-primary,
+      accent: $invoice-app-accent,
+      warn: $invoice-app-warn,
+    ),
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($invoice-app-theme);
 
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "League Spartan";
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-img {-webkit-user-drag: none;}
+html,
+body {
+  height: 100%;
+  font-family: "League Spartan", sans-serif;
+}
+body {
+  margin: 0;
+}
+img {
+  -webkit-user-drag: none;
+}
+
+// select field
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #f2f2f2 !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+.mat-mdc-select-arrow {
+  color: #7c5dfa !important;
+}
+
+.mdc-line-ripple {
+  display: none !important;
+}
