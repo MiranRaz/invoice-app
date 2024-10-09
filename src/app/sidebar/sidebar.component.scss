@@ -1,0 +1,44 @@
+mat-divider {
+  background-color: #494e6e;
+  height: 1px;
+}
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 103px;
+  height: 100vh;
+  background-color: #373b53;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+
+  .logo-wrapper {
+    cursor: pointer;
+    .logo {
+      width: 103px;
+      height: 103px;
+    }
+  }
+  .footer {
+    .icon-wrapper {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 32px;
+      mat-icon {
+        color: #7e88c3;
+        cursor: pointer;
+      }
+    }
+    .avatar-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 24px 0px;
+      .avatar {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
