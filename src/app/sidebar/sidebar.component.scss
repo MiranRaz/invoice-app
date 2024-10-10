@@ -29,6 +29,9 @@ mat-divider {
       mat-icon {
         color: #7e88c3;
         cursor: pointer;
+        &:hover {
+          color: #dfe3fa;
+        }
       }
     }
     .avatar-wrapper {
