@@ -29,7 +29,7 @@
   <div class="dashboard-content-wrapper">
     @if (filteredInvoices().length > 0) { @for (invoice of filteredInvoices();
     track invoice.invoiceNumber) {
-    <div class="invoice-content">
+    <div class="invoice-content" (click)="viewInvoice(invoice.invoiceNumber)">
       <div class="invoice-card-wrapper">
         <div class="invoice-number">
           <span>#</span>

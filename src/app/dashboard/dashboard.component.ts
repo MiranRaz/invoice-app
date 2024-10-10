@@ -5,6 +5,7 @@ import { MatOption, MatSelect } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { DUMMY_INVOICES } from '../../dummy-data/dummy-invoices';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,6 +23,8 @@ import { DUMMY_INVOICES } from '../../dummy-data/dummy-invoices';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
+  constructor(private router: Router) {}
+
   invoices = DUMMY_INVOICES;
   statuses = new FormControl<string[]>([]);
   statusesList: string[] = ['Draft', 'Pending', 'Paid', 'Kraft'];
@@ -41,6 +44,10 @@ export class DashboardComponent {
 
   totalInvoices() {
     return this.invoices.length;
+  }
+
+  viewInvoice(invoiceNumber: string) {
+    this.router.navigate(['/view-invoice', invoiceNumber]);
   }
 
   ngOnInit() {
