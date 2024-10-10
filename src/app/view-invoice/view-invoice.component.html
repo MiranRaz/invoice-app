@@ -1,0 +1,80 @@
+<div class="view-invoice-wrapper">
+  <div class="go-back-action-wrapper" (click)="goBack()">
+    <mat-icon class="go-back-icon">chevron_left</mat-icon>
+    <p class="go-back-title">Go back</p>
+  </div>
+  <div class="invoice-status-wrapper">
+    <div class="invoice-status">
+      <p class="invoice-text">Status</p>
+      <div
+        class="status-button-wrapper"
+        [ngClass]="getInvoiceStatus().toLowerCase()"
+      >
+        <mat-icon class="status-button-icon">circle</mat-icon>
+        <span class="status-button-title">{{ getInvoiceStatus() }}</span>
+      </div>
+    </div>
+    <div class="invoice-actions">
+      <button class="invoice-actions-edit">Edit</button>
+      <button class="invoice-actions-delete">Delete</button>
+      <button class="invoice-actions-paid">Mark as Paid</button>
+    </div>
+  </div>
+  <div class="invoice-details">
+    <div class="invoice-details-wrapper">
+      <div class="invoice-details-header">
+        <div class="invoice-details-number">
+          <p class="invoice-text-bold">
+            <span class="invoice-text">#</span
+            >{{ pickedInvoice()?.invoiceNumber }}
+          </p>
+          <p class="invoice-text">Graphic Design</p>
+        </div>
+        <div class="invoice-details-address">
+          <p class="invoice-text">
+            19 Union Terrace<br />
+            London<br />
+            E1 3EZ<br />
+            United Kingdom
+          </p>
+        </div>
+      </div>
+      <div class="invoice-details-body">
+        <div class="invoice-details-body-dates">
+          <div class="invoice-details-date">
+            <p class="invoice-text">Invoice Date</p>
+            <p class="invoice-text-bold">21 Aug 2021</p>
+          </div>
+          <div class="invoice-details-date">
+            <p class="invoice-text">Payment Due</p>
+            <p class="invoice-text-bold">{{ pickedInvoice()?.dueDate }}</p>
+          </div>
+        </div>
+        <div class="invoice-details-body-billing">
+          <p class="invoice-text">Bill To</p>
+          <p class="invoice-text-bold">{{ pickedInvoice()?.name }}</p>
+          <p class="invoice-text">
+            84 Church Way<br />
+            Bradford <br />
+            BD1 9PB<br />
+            United Kingdom
+          </p>
+        </div>
+        <div class="invoice-details-body-mailing">
+          <p class="invoice-text">Sent to</p>
+          <p class="invoice-text-bold">alexgrimmail.com</p>
+        </div>
+      </div>
+      <div class="invoice-calculation">
+        <div class="invoice-calculation-wrapper">a</div>
+      </div>
+      <div class="invoice-total">
+        <p class="invoice-total-text">Amount due</p>
+        <p class="invoice-total-amount">
+          <span>£</span>
+          {{ pickedInvoice()?.amount }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

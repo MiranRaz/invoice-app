@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InvoiceDetailsComponent } from './invoice-details.component';
+import { InvoiceDetailsComponent } from './view-invoice.component';
 
 describe('InvoiceDetailsComponent', () => {
   let component: InvoiceDetailsComponent;
@@ -8,10 +8,9 @@ describe('InvoiceDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InvoiceDetailsComponent]
-    })
-    .compileComponents();
-    
+      imports: [InvoiceDetailsComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(InvoiceDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

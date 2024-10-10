@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { InvoiceDetailsComponent } from './invoice-details/invoice-details.component';
+import { InvoiceDetailsComponent } from './view-invoice/view-invoice.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [

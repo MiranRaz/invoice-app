@@ -1,0 +1,195 @@
+.invoice-text {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+  align-self: center;
+  color: #858bb2;
+}
+.invoice-text-bold {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  align-self: center;
+}
+.view-invoice-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: calc(100vw - 103px);
+  background-color: #f2f2f2;
+  overflow: scroll;
+  color: #0c0e16;
+
+  // go back button action
+  .go-back-action-wrapper {
+    padding-top: 65px;
+    padding-bottom: 30px;
+    width: 730px;
+    display: flex;
+    flex-direction: row;
+
+    gap: 24px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+
+    .go-back-icon {
+      color: #7c5dfa;
+      font-weight: 900;
+    }
+
+    .go-back-title {
+      margin: 0px;
+      align-self: center;
+      font-size: 15px;
+      font-weight: 700;
+    }
+  }
+
+  // invoice status
+  .invoice-status-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    width: 730px;
+    height: 88px;
+    border-radius: 8px;
+
+    .invoice-status {
+      display: flex;
+      flex-direction: row;
+      padding-left: 32px;
+      gap: 20px;
+
+      .status-button-wrapper {
+        width: 104px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        &.paid {
+          background-color: rgba(51, 214, 159, 0.1);
+          color: #33d69f;
+        }
+
+        &.pending {
+          background-color: rgba(255, 143, 0, 0.1);
+          color: #ff8f00;
+        }
+
+        &.draft {
+          background-color: rgba(55, 59, 83, 0.1);
+          color: #373b53;
+        }
+        .status-button-icon {
+          width: 8px;
+          height: 8px;
+          font-size: 8px;
+        }
+        .status-button-title {
+          font-size: 15px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    // invoice actions
+    .invoice-actions {
+      display: flex;
+      gap: 8px;
+      padding-right: 32px;
+
+      button {
+        border: 0;
+        color: white;
+        border-radius: 24px;
+        height: 48px;
+        cursor: pointer;
+        font-weight: 700;
+
+        &:hover {
+          opacity: 0.65;
+        }
+
+        &.invoice-actions-edit {
+          background-color: #f9fafe;
+          color: #7e88c3;
+          width: 73px;
+        }
+        &.invoice-actions-delete {
+          background-color: #ec5757;
+          width: 89px;
+        }
+        &.invoice-actions-paid {
+          background-color: #7c5dfa;
+          width: 131px;
+        }
+      }
+    }
+  }
+  .invoice-details {
+    width: 730px;
+    height: 601px;
+    background-color: white;
+    margin-top: 24px;
+    border-radius: 8px;
+    .invoice-details-wrapper {
+      padding: 48px;
+      .invoice-details-header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .invoice-details-body {
+        padding-top: 16px;
+        display: flex;
+        flex-direction: row;
+        gap: 117px;
+        .invoice-details-body-dates {
+          display: flex;
+          flex-direction: column;
+          gap: 31px;
+        }
+      }
+    }
+  }
+  .invoice-calculation {
+    background-color: #f9fafe;
+    width: 634px;
+    height: 184px;
+    margin-top: 24px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    .invoice-calculation-wrapper {
+      padding: 32px;
+    }
+  }
+  .invoice-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0px 32px;
+    background-color: #373b53;
+    color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    .invoice-total-text {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .invoice-total-amount {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+}
