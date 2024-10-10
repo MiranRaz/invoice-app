@@ -2,8 +2,87 @@
 <div class="ce-invoice-wrapper">
   <div class="ce-invoice">
     <div class="ce-invoice-body">
-      This is a sidebar popup for create invoice
+      <p class="ce-invoice-title">New Invoice</p>
+
+      <!-- form from -->
+      <div class="ce-invoice-bill">
+        <p class="ce-invoice-bill">Bill From</p>
+        <div class="ce-invoice-bill">
+          <div>
+            <p class="ce-invoice-label">Street Address</p>
+            <input class="ce-invoice-input" />
+          </div>
+          <div class="ce-invoice-input-fields-wrapper">
+            <div>
+              <p class="ce-invoice-label">City</p>
+              <input class="ce-invoice-input" />
+            </div>
+            <div>
+              <p class="ce-invoice-label">Post Code</p>
+              <input class="ce-invoice-input" />
+            </div>
+            <div>
+              <p class="ce-invoice-label">Country</p>
+              <input class="ce-invoice-input" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- form to -->
+      <div class="ce-invoice-bill">
+        <p class="ce-invoice-bill">Bill To</p>
+        <div class="ce-invoice-bill">
+          <div>
+            <p class="ce-invoice-label">Client's Name</p>
+            <input class="ce-invoice-input" />
+          </div>
+          <div>
+            <p class="ce-invoice-label">Client's Email</p>
+            <input class="ce-invoice-input" />
+          </div>
+          <div>
+            <p class="ce-invoice-label">Client's Address</p>
+            <input class="ce-invoice-input" />
+          </div>
+          <div class="ce-invoice-input-fields-wrapper">
+            <div>
+              <p class="ce-invoice-label">City</p>
+              <input class="ce-invoice-input" />
+            </div>
+            <div>
+              <p class="ce-invoice-label">Post Code</p>
+              <input class="ce-invoice-input" />
+            </div>
+            <div>
+              <p class="ce-invoice-label">Country</p>
+              <input class="ce-invoice-input" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- form date, payment and descriotion -->
+      <div class="ce-invoice-bill">
+        <div class="ce-invoice-input-fields-wrapper">
+          <div class="ce-invoice-input-fields-full-width">
+            <p class="ce-invoice-label">Invoice Date</p>
+            <input class="ce-invoice-input" />
+          </div>
+          <div class="ce-invoice-input-fields-full-width">
+            <p class="ce-invoice-label">Payment Terms</p>
+            <input class="ce-invoice-input" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="ce-invoice-label">Project Description</p>
+        <input class="ce-invoice-input" />
+      </div>
+
+      <!-- Item list with add item action-->
     </div>
+
+    <!-- actions buttons -->
     <div class="ce-invoice-footer">
       <button (click)="closeInvoice()" class="ce-invoice-discard">
         Discard
