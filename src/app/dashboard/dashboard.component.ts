@@ -24,9 +24,7 @@ import { DUMMY_INVOICES } from '../../dummy-data/dummy-invoices';
 export class DashboardComponent {
   invoices = DUMMY_INVOICES;
   statuses = new FormControl<string[]>([]);
-  statusesList: string[] = ['Draft', 'Pending', 'Paid'];
-
-  totalInvoices = computed(() => this.filteredInvoices().length);
+  statusesList: string[] = ['Draft', 'Pending', 'Paid', 'Kraft'];
 
   selectedStatusesSignal = signal<string[]>([]);
   filteredInvoices = computed(() => {
@@ -34,10 +32,16 @@ export class DashboardComponent {
     if (!selectedStatuses || selectedStatuses.length === 0) {
       return this.invoices;
     }
-    return this.invoices.filter((invoice) =>
-      selectedStatuses.includes(invoice.status)
+    return this.invoices.filter(
+      (invoice) =>
+        selectedStatuses.length === 0 ||
+        selectedStatuses.includes(invoice.status)
     );
   });
+
+  totalInvoices() {
+    return this.invoices.length;
+  }
 
   ngOnInit() {
     this.statuses.valueChanges.subscribe((selectedStatuses) => {

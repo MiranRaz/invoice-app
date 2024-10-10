@@ -48,19 +48,22 @@
         height: 48px;
         border-radius: 24px;
         border: 0px;
-        background-color: #9277ff;
+        background-color: #7c5dfa;
         color: white;
         cursor: pointer;
         font-weight: 700;
         font-size: 15px;
         letter-spacing: -0.25px;
+        &:hover {
+          background-color: #9277ff;
+        }
 
         .icon-wrapper {
           display: flex;
           align-items: center;
           justify-content: center;
           background-color: white;
-          color: #9277ff;
+          color: #7c5dfa;
           height: 32px;
           width: 32px;
           border-radius: 50px;
@@ -75,13 +78,14 @@
   }
 
   // inovice cards
-  .dashboard-content {
+  .invoice-content {
     display: flex;
     justify-content: center;
     width: 100%;
     padding-top: 16px;
 
     .invoice-card-wrapper {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -91,7 +95,7 @@
       font-size: 13px;
       font-weight: 500;
       border-radius: 8px;
-      cursor: pointer;
+      box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1004);
 
       .invoice-number {
         display: flex;
@@ -152,6 +156,32 @@
         font-size: 20px;
         font-weight: 700;
         color: #7c5dfa;
+      }
+    }
+  }
+
+  // no invoices
+  .no-invoices-wrapper {
+    padding-top: 116px;
+    width: 241px;
+    height: 342px;
+    .no-invoices-content {
+      text-align: center;
+      .no-invoices-img {
+        width: 241px;
+        height: 200px;
+      }
+      .no-invoices-title {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .no-invoices-description {
+        font-size: 13px;
+        font-weight: 500;
+        color: #888eb0;
+        .no-invoices-bold {
+          font-weight: 700;
+        }
       }
     }
   }

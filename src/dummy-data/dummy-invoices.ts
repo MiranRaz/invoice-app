@@ -1,6 +1,12 @@
-export const DUMMY_INVOICES = [
+interface Invoice {
+  invoiceNumber: string;
+  dueDate: string;
+  name: string;
+  amount: string;
+  status: string;
+}
+export const DUMMY_INVOICES: Invoice[] = [
   {
-    id: 'i0',
     invoiceNumber: 'RT3080',
     dueDate: '19 Aug 2021',
     name: 'Jensen Huang',
@@ -8,7 +14,6 @@ export const DUMMY_INVOICES = [
     status: 'Paid',
   },
   {
-    id: 'i1',
     invoiceNumber: 'XM9141',
     dueDate: '20 Sep 2021',
     name: 'Alex Grim',
@@ -16,7 +21,6 @@ export const DUMMY_INVOICES = [
     status: 'Pending',
   },
   {
-    id: 'i2',
     invoiceNumber: 'RG0314',
     dueDate: '01 Oct 2021',
     name: 'John Morrison',
@@ -24,7 +28,6 @@ export const DUMMY_INVOICES = [
     status: 'Paid',
   },
   {
-    id: 'i3',
     invoiceNumber: 'RT2080',
     dueDate: '12 Oct 2021',
     name: 'Alysa Werner',
@@ -32,7 +35,6 @@ export const DUMMY_INVOICES = [
     status: 'Pending',
   },
   {
-    id: 'i4',
     invoiceNumber: 'AA1449',
     dueDate: '14 Oct 2021',
     name: 'Melissa Clarke',
@@ -40,7 +42,6 @@ export const DUMMY_INVOICES = [
     status: 'Pending',
   },
   {
-    id: 'i5',
     invoiceNumber: 'TY9141',
     dueDate: '31 Oct 2021',
     name: 'Thomas Wayne',
@@ -48,7 +49,6 @@ export const DUMMY_INVOICES = [
     status: 'Pending',
   },
   {
-    id: 'i6',
     invoiceNumber: 'FV2353',
     dueDate: '12 Nov 2021',
     name: 'Anita Wainwright',
