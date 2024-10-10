@@ -18,7 +18,7 @@
           }
         </mat-select>
       </mat-form-field>
-      <button class="invoice-button">
+      <button class="invoice-button" (click)="openCreateInvoice()">
         <div class="icon-wrapper">
           <mat-icon class="button-icon">add</mat-icon>
         </div>
@@ -51,3 +51,7 @@
     }
   </div>
 </div>
+<app-create-edit-invoice
+  *ngIf="showCreateInvoice"
+  (close)="closeCreateInvoice()"
+></app-create-edit-invoice>

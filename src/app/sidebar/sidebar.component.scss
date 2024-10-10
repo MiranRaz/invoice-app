@@ -11,6 +11,8 @@ mat-divider {
   background-color: #373b53;
   border-top-right-radius: 19px;
   border-bottom-right-radius: 19px;
+  position: absolute;
+  z-index: 10;
 
   .logo-wrapper {
     cursor: pointer;

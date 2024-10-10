@@ -1,0 +1,80 @@
+.ce-invoice-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ce-invoice-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .ce-invoice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 103px;
+    width: 616px;
+    height: 100vh;
+    background-color: white;
+    color: #0c0e16;
+    border-top-right-radius: 19px;
+    border-bottom-right-radius: 19px;
+
+    .ce-invoice-body {
+      overflow: scroll;
+    }
+
+    .ce-invoice-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 32px 56px;
+
+      .ce-invoice-discard {
+        border: 0;
+        border-radius: 24px;
+        height: 48px;
+        width: 96px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 700;
+        background-color: #f2f2f2;
+        color: #7e88c3;
+      }
+
+      .ce-invoice-footer-buttons {
+        display: flex;
+        gap: 8px;
+
+        button {
+          border: 0;
+          color: white;
+          border-radius: 24px;
+          height: 48px;
+          width: 133px;
+          cursor: pointer;
+          font-size: 15px;
+          font-weight: 700;
+
+          &:hover {
+            opacity: 0.65;
+          }
+
+          &.ce-invoice-draft {
+            background-color: #373b53;
+            color: #888eb0;
+          }
+          &.ce-invoice-save {
+            background-color: #7c5dfa;
+          }
+        }
+      }
+    }
+  }
+}

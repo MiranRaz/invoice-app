@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { DUMMY_INVOICES } from '../../dummy-data/dummy-invoices';
 import { Router } from '@angular/router';
 import { InvoicesListComponent } from './invoices-list/invoices-list.component';
+import { CreateEditInvoiceComponent } from '../create-edit-invoice/create-edit-invoice.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ import { InvoicesListComponent } from './invoices-list/invoices-list.component';
     ReactiveFormsModule,
     MatIconModule,
     InvoicesListComponent,
+    CreateEditInvoiceComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
@@ -30,8 +32,9 @@ export class DashboardComponent {
   invoices = DUMMY_INVOICES;
   statuses = new FormControl<string[]>([]);
   statusesList: string[] = ['Draft', 'Pending', 'Paid', 'Kraft'];
-
+  showCreateInvoice = false;
   selectedStatusesSignal = signal<string[]>([]);
+
   filteredInvoices = computed(() => {
     const selectedStatuses = this.selectedStatusesSignal();
     if (!selectedStatuses || selectedStatuses.length === 0) {
@@ -50,6 +53,14 @@ export class DashboardComponent {
 
   viewInvoice(invoiceNumber: string) {
     this.router.navigate(['/view-invoice', invoiceNumber]);
+  }
+
+  openCreateInvoice() {
+    this.showCreateInvoice = true;
+  }
+
+  closeCreateInvoice() {
+    this.showCreateInvoice = false;
   }
 
   ngOnInit() {
