@@ -1,4 +1,4 @@
-interface Invoice {
+export interface Invoice {
   invoiceNumber: string;
   dueDate: string;
   name: string;

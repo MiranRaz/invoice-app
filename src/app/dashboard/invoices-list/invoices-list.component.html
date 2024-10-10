@@ -1,0 +1,19 @@
+<div class="invoice-card-wrapper" [attr.key]="invoice.invoiceNumber">
+  <div class="invoice-number">
+    <span>#</span>
+    {{ invoice.invoiceNumber }}
+  </div>
+  <div class="due-date">Due {{ invoice.dueDate }}</div>
+  <div class="name">{{ invoice.name }}</div>
+  <div class="amount">
+    <span>£</span>
+    {{ invoice.amount }}
+  </div>
+  <div class="status-wrapper" [ngClass]="invoice.status.toLowerCase()">
+    <mat-icon class="status-icon">circle</mat-icon>
+    <span class="status-title">{{ invoice.status }}</span>
+  </div>
+  <div class="arrow">
+    <mat-icon class="arrow-icon">chevron_right</mat-icon>
+  </div>
+</div>

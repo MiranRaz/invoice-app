@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { DUMMY_INVOICES } from '../../dummy-data/dummy-invoices';
 import { Router } from '@angular/router';
+import { InvoicesListComponent } from './invoices-list/invoices-list.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,7 @@ import { Router } from '@angular/router';
     MatOption,
     ReactiveFormsModule,
     MatIconModule,
+    InvoicesListComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
