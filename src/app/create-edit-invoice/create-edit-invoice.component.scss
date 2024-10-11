@@ -16,6 +16,16 @@
     color: #0c0e16;
     border-top-right-radius: 19px;
     border-bottom-right-radius: 19px;
+    animation: slideIn 0.5s ease-out forwards;
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
 
     .ce-invoice-body {
       display: flex;
@@ -41,6 +51,83 @@
           flex-direction: row;
           justify-content: space-between;
           gap: 24px;
+        }
+      }
+
+      // invoice list items
+      .ce-invoice-items-list-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .ce-invoice-items-list-title {
+          font-size: 18px;
+          font-weight: 700;
+          color: #777f98;
+          margin-bottom: 16px;
+        }
+
+        .ce-invoice-items-list-headings-wrapper,
+        .ce-invoice-items-list-items-wrapper {
+          display: grid;
+          grid-template-columns: 2fr 0.5fr 1fr 1fr 0.5fr;
+          gap: 16px;
+          align-items: center;
+        }
+
+        .ce-invoice-items-list-headings-wrapper {
+          p {
+            font-size: 13px;
+            font-weight: 500;
+            color: #7e88c3;
+          }
+        }
+
+        .ce-invoice-items-list-items-wrapper {
+          .ce-invoice-input {
+            height: 48px;
+            border: 1px solid #dfe3fa;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 700;
+
+            &:focus {
+              outline: 1px solid #7c5dfa;
+            }
+          }
+
+          .total {
+            font-size: 15px;
+            font-weight: 700;
+            color: #888eb0;
+          }
+
+          .delete-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #888eb0;
+
+            &:hover {
+              color: #ec5757;
+            }
+          }
+        }
+
+        .add-new-item {
+          background-color: #f9fafe;
+          border: none;
+          border-radius: 24px;
+          color: #7e88c3;
+          font-size: 15px;
+          font-weight: 700;
+          padding: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #dfe3fa;
+          }
         }
       }
     }
