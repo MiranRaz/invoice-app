@@ -36,7 +36,6 @@ export class DashboardComponent {
   selectedStatusesSignal = signal<string[]>([]);
 
   filteredInvoices = computed(() => {
-    console.log('filteredInvoices called, invoices:', this.invoices);
     const selectedStatuses = this.selectedStatusesSignal();
     if (!selectedStatuses || selectedStatuses.length === 0) {
       return this.invoices;
@@ -65,9 +64,7 @@ export class DashboardComponent {
   }
 
   saveInvoice(invoice: Invoice) {
-    console.log('Received new invoice in DashboardComponent:', invoice);
     this.invoices.push(invoice);
-    console.log('Updated invoices array:', this.invoices);
     this.closeCreateInvoice();
   }
 
