@@ -1,10 +1,9 @@
 .delete-invoice-dialog-wrapper {
   border-radius: 8px;
-  padding: 48px;
+  padding: 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 12px;
 
   .delete-invoice-dialog-title {
     font-size: 24px;
@@ -16,7 +15,6 @@
     font-weight: 500;
     letter-spacing: -0.1px;
     padding: 0;
-    max-width: 384px;
     color: #888eb0;
   }
   .delete-invoice-dialog-actions {
