@@ -1,0 +1,23 @@
+<div class="delete-invoice-dialog-wrapper">
+  <h2 mat-dialog-titl class="delete-invoice-dialog-title">Confirm Deletion</h2>
+  <mat-dialog-content class="delete-invoice-dialog-description">
+    Are you sure you want to delete invoice #{{ data.invoiceNumber }}? This
+    action cannot be undone.
+  </mat-dialog-content>
+  <mat-dialog-actions class="delete-invoice-dialog-actions">
+    <button
+      mat-button
+      (click)="onCancel()"
+      class="delete-invoice-dialog-actions-cancel"
+    >
+      Cancel
+    </button>
+    <button
+      mat-button
+      (click)="onConfirmDelete()"
+      class="delete-invoice-dialog-actions-delete"
+    >
+      Delete
+    </button>
+  </mat-dialog-actions>
+</div>

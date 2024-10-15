@@ -18,8 +18,12 @@
       <button class="invoice-actions-edit" (click)="openEditInvoice()">
         Edit
       </button>
-      <button class="invoice-actions-delete">Delete</button>
-      <button class="invoice-actions-paid" (click)="markAsPaid()">Mark as Paid</button>
+      <button class="invoice-actions-delete" (click)="openDeleteDialog()">
+        Delete
+      </button>
+      <button class="invoice-actions-paid" (click)="markAsPaid()">
+        Mark as Paid
+      </button>
     </div>
   </div>
   <div class="invoice-details">
