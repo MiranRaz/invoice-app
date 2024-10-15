@@ -166,8 +166,19 @@
     margin-top: 24px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    .invoice-calculation-wrapper {
+    overflow: scroll;
+
+    .invoice-calculation-container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
       padding: 32px;
+      .invoice-calculation-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 1fr 2fr 1fr;
+        gap: 16px;
+        align-items: center;
+      }
     }
   }
   .invoice-total {

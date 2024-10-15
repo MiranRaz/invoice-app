@@ -222,3 +222,15 @@ p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
+.error-message {
+  color: #ec5757;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.input-error {
+  border: 1px solid #ec5757;
+}
+.ce-invoice-input.ng-invalid.ng-touched,
+.ce-invoice-input.ng-invalid.ng-dirty {
+  border-color: #ec5757;
+}

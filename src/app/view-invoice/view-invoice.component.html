@@ -15,9 +15,11 @@
       </div>
     </div>
     <div class="invoice-actions">
-      <button class="invoice-actions-edit">Edit</button>
+      <button class="invoice-actions-edit" (click)="openEditInvoice()">
+        Edit
+      </button>
       <button class="invoice-actions-delete">Delete</button>
-      <button class="invoice-actions-paid">Mark as Paid</button>
+      <button class="invoice-actions-paid" (click)="markAsPaid()">Mark as Paid</button>
     </div>
   </div>
   <div class="invoice-details">
@@ -28,14 +30,14 @@
             <span class="invoice-text">#</span
             >{{ pickedInvoice()?.invoiceNumber }}
           </p>
-          <p class="invoice-text">Graphic Design</p>
+          <p class="invoice-text">{{ pickedInvoice()?.description }}</p>
         </div>
         <div class="invoice-details-address">
           <p class="invoice-text">
-            19 Union Terrace<br />
-            London<br />
-            E1 3EZ<br />
-            United Kingdom
+            {{ pickedInvoice()?.senderAddress?.street }}<br />
+            {{ pickedInvoice()?.senderAddress?.city }}<br />
+            {{ pickedInvoice()?.senderAddress?.postCode }}<br />
+            {{ pickedInvoice()?.senderAddress?.country }}
           </p>
         </div>
       </div>
@@ -43,38 +45,67 @@
         <div class="invoice-details-body-dates">
           <div class="invoice-details-date">
             <p class="invoice-text">Invoice Date</p>
-            <p class="invoice-text-bold">21 Aug 2021</p>
+            <p class="invoice-text-bold">{{ pickedInvoice()?.createdAt }}</p>
           </div>
           <div class="invoice-details-date">
             <p class="invoice-text">Payment Due</p>
-            <p class="invoice-text-bold">{{ pickedInvoice()?.dueDate }}</p>
+            <p class="invoice-text-bold">{{ pickedInvoice()?.paymentDue }}</p>
           </div>
         </div>
         <div class="invoice-details-body-billing">
           <p class="invoice-text">Bill To</p>
-          <p class="invoice-text-bold">{{ pickedInvoice()?.name }}</p>
+          <p class="invoice-text-bold">{{ pickedInvoice()?.clientName }}</p>
           <p class="invoice-text">
-            84 Church Way<br />
-            Bradford <br />
-            BD1 9PB<br />
-            United Kingdom
+            {{ pickedInvoice()?.clientAddress?.street }}<br />
+            {{ pickedInvoice()?.clientAddress?.city }}<br />
+            {{ pickedInvoice()?.clientAddress?.postCode }}<br />
+            {{ pickedInvoice()?.clientAddress?.country }}
           </p>
         </div>
         <div class="invoice-details-body-mailing">
           <p class="invoice-text">Sent to</p>
-          <p class="invoice-text-bold">alexgrimmail.com</p>
+          <p class="invoice-text-bold">{{ pickedInvoice()?.clientEmail }}</p>
         </div>
       </div>
       <div class="invoice-calculation">
-        <div class="invoice-calculation-wrapper">a</div>
+        <div class="invoice-calculation-container">
+          <div class="invoice-calculation-wrapper">
+            <p class="invoice-text">Item Name</p>
+            <p class="invoice-text">QTY.</p>
+            <p class="invoice-text">Price</p>
+            <p class="invoice-text">Total</p>
+          </div>
+          <div
+            class="invoice-calculation-wrapper"
+            *ngFor="let item of pickedInvoice()?.items"
+          >
+            <p class="invoice-text-bold">{{ item.name }}</p>
+            <p class="invoice-text-bold">{{ item.quantity }}</p>
+            <p class="invoice-text-bold">
+              {{ item.price | currency : "GBP" : "symbol-narrow" : "1.2-2" }}
+            </p>
+            <p class="invoice-text-bold">
+              {{ item.total | currency : "GBP" : "symbol-narrow" : "1.2-2" }}
+            </p>
+          </div>
+        </div>
       </div>
       <div class="invoice-total">
         <p class="invoice-total-text">Amount due</p>
         <p class="invoice-total-amount">
-          <span>£</span>
-          {{ pickedInvoice()?.amount }}
+          {{
+            pickedInvoice()?.total
+              | currency : "GBP" : "symbol-narrow" : "1.2-2"
+          }}
         </p>
       </div>
     </div>
   </div>
 </div>
+<app-create-edit-invoice
+  *ngIf="showEditInvoice"
+  [mode]="'edit'"
+  [invoice]="pickedInvoice()"
+  (close)="closeEditInvoice()"
+  (save)="saveEditedInvoice($event)"
+></app-create-edit-invoice>

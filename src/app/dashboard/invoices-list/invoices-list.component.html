@@ -3,11 +3,11 @@
     <span>#</span>
     {{ invoice.invoiceNumber }}
   </div>
-  <div class="due-date">Due {{ invoice.dueDate }}</div>
-  <div class="name">{{ invoice.name }}</div>
+  <div class="due-date">Due {{ invoice.paymentDue }}</div>
+  <div class="name">{{ invoice.clientName }}</div>
   <div class="amount">
     <span>£</span>
-    {{ invoice.amount }}
+    {{ invoice.total }}
   </div>
   <div class="status-wrapper" [ngClass]="invoice.status.toLowerCase()">
     <mat-icon class="status-icon">circle</mat-icon>

@@ -53,5 +53,7 @@
 </div>
 <app-create-edit-invoice
   *ngIf="showCreateInvoice"
+  [mode]="'create'"
   (close)="closeCreateInvoice()"
-></app-create-edit-invoice>
+  (save)="saveInvoice($event)"
+/>

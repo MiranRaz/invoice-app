@@ -1,120 +1,241 @@
 <div class="ce-invoice-backdrop"></div>
 <div class="ce-invoice-wrapper">
-  <div class="ce-invoice">
-    <div class="ce-invoice-body">
-      <p class="ce-invoice-title">New Invoice</p>
+  <form [formGroup]="invoiceForm">
+    <div class="ce-invoice">
+      <div class="ce-invoice-body">
+        <p class="ce-invoice-title">
+          {{ mode === "create" ? "New Invoice" : "Edit Invoice" }}
+        </p>
 
-      <!-- form from -->
-      <div class="ce-invoice-bill">
-        <p class="ce-invoice-bill">Bill From</p>
-        <div class="ce-invoice-bill">
+        <!-- Bill From -->
+        <div class="ce-invoice-bill" formGroupName="senderAddress">
+          <p class="ce-invoice-bill">Bill From</p>
           <div>
             <p class="ce-invoice-label">Street Address</p>
-            <input class="ce-invoice-input" />
+            <input class="ce-invoice-input" formControlName="street" />
+            <p
+              class="error-message"
+              *ngIf="formSubmitted && invoiceForm.get('senderAddress.street')?.errors?.['required']"
+            >
+              Street Address is required
+            </p>
           </div>
           <div class="ce-invoice-input-fields-wrapper">
             <div>
               <p class="ce-invoice-label">City</p>
-              <input class="ce-invoice-input" />
+              <input class="ce-invoice-input" formControlName="city" />
+              <p
+                class="error-message"
+                *ngIf="formSubmitted && invoiceForm.get('senderAddress.city')?.errors?.['required']"
+              >
+                City is required
+              </p>
             </div>
             <div>
               <p class="ce-invoice-label">Post Code</p>
-              <input class="ce-invoice-input" />
+              <input class="ce-invoice-input" formControlName="postCode" />
+              <p
+                class="error-message"
+                *ngIf="formSubmitted && invoiceForm.get('senderAddress.postCode')?.errors?.['required']"
+              >
+                Post Code is required
+              </p>
             </div>
             <div>
               <p class="ce-invoice-label">Country</p>
-              <input class="ce-invoice-input" />
+              <input class="ce-invoice-input" formControlName="country" />
+              <p
+                class="error-message"
+                *ngIf="formSubmitted && invoiceForm.get('senderAddress.country')?.errors?.['required']"
+              >
+                Country is required
+              </p>
             </div>
           </div>
         </div>
-      </div>
-      <!-- form to -->
-      <div class="ce-invoice-bill">
-        <p class="ce-invoice-bill">Bill To</p>
+
+        <!-- Bill To -->
         <div class="ce-invoice-bill">
+          <p class="ce-invoice-bill">Bill To</p>
           <div>
             <p class="ce-invoice-label">Client's Name</p>
-            <input class="ce-invoice-input" />
+            <input class="ce-invoice-input" formControlName="clientName" />
+            <p
+              class="error-message"
+              *ngIf="formSubmitted && invoiceForm.get('clientName')?.errors?.['required']"
+            >
+              Client's Name is required
+            </p>
           </div>
           <div>
             <p class="ce-invoice-label">Client's Email</p>
-            <input class="ce-invoice-input" />
+            <input class="ce-invoice-input" formControlName="clientEmail" />
+            <p
+              class="error-message"
+              *ngIf="formSubmitted && invoiceForm.get('clientEmail')?.errors?.['required']"
+            >
+              Client's Email is required
+            </p>
           </div>
-          <div>
-            <p class="ce-invoice-label">Client's Address</p>
-            <input class="ce-invoice-input" />
+          <div formGroupName="clientAddress">
+            <div>
+              <p class="ce-invoice-label">Street Address</p>
+              <input class="ce-invoice-input" formControlName="street" />
+              <p
+                class="error-message"
+                *ngIf="formSubmitted && invoiceForm.get('clientAddress.street')?.errors?.['required']"
+              >
+                Street Address is required
+              </p>
+            </div>
+            <div class="ce-invoice-input-fields-wrapper">
+              <div>
+                <p class="ce-invoice-label">City</p>
+                <input class="ce-invoice-input" formControlName="city" />
+                <p
+                  class="error-message"
+                  *ngIf="formSubmitted && invoiceForm.get('clientAddress.city')?.errors?.['required']"
+                >
+                  City is required
+                </p>
+              </div>
+              <div>
+                <p class="ce-invoice-label">Post Code</p>
+                <input class="ce-invoice-input" formControlName="postCode" />
+                <p
+                  class="error-message"
+                  *ngIf="formSubmitted && invoiceForm.get('clientAddress.postCode')?.errors?.['required']"
+                >
+                  Post Code is required
+                </p>
+              </div>
+              <div>
+                <p class="ce-invoice-label">Country</p>
+                <input class="ce-invoice-input" formControlName="country" />
+                <p
+                  class="error-message"
+                  *ngIf="formSubmitted && invoiceForm.get('clientAddress.country')?.errors?.['required']"
+                >
+                  Country is required
+                </p>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <!-- Invoice Details -->
+        <div class="ce-invoice-bill">
           <div class="ce-invoice-input-fields-wrapper">
-            <div>
-              <p class="ce-invoice-label">City</p>
-              <input class="ce-invoice-input" />
+            <div class="ce-invoice-input-fields-full-width">
+              <p class="ce-invoice-label">Invoice Date</p>
+              <input
+                class="ce-invoice-input"
+                type="date"
+                formControlName="createdAt"
+              />
             </div>
-            <div>
-              <p class="ce-invoice-label">Post Code</p>
-              <input class="ce-invoice-input" />
-            </div>
-            <div>
-              <p class="ce-invoice-label">Country</p>
-              <input class="ce-invoice-input" />
+            <div class="ce-invoice-input-fields-full-width">
+              <p class="ce-invoice-label">Payment Terms</p>
+              <input
+                class="ce-invoice-input"
+                type="number"
+                formControlName="paymentTerms"
+              />
+              <p
+                class="error-message"
+                *ngIf="formSubmitted && invoiceForm.get('paymentTerms')?.errors"
+              >
+                <span
+                  *ngIf="invoiceForm.get('paymentTerms')?.errors?.['required']"
+                  >Payment Terms is required</span
+                >
+                <span *ngIf="invoiceForm.get('paymentTerms')?.errors?.['min']"
+                  >Payment Terms must be at least 1</span
+                >
+              </p>
             </div>
           </div>
+        </div>
+        <div>
+          <p class="ce-invoice-label">Project Description</p>
+          <input class="ce-invoice-input" formControlName="description" />
+          <p
+            class="error-message"
+            *ngIf="formSubmitted && invoiceForm.get('description')?.errors?.['required']"
+          >
+            Project Description is required
+          </p>
+        </div>
+        <!-- Item List -->
+        <div class="ce-invoice-items-list-wrapper" formArrayName="items">
+          <p class="ce-invoice-items-list-title">Item List</p>
+          <div class="ce-invoice-items-list-headings-wrapper">
+            <p class="item-name">Item Name</p>
+            <p class="qty">Qty.</p>
+            <p class="price">Price</p>
+            <p class="total">Total</p>
+          </div>
+          <div
+            *ngFor="let item of itemsFormArray.controls; let i = index"
+            [formGroupName]="i"
+            class="ce-invoice-items-list-items-wrapper"
+          >
+            <input class="ce-invoice-input item-name" formControlName="name" />
+            <input
+              class="ce-invoice-input qty"
+              type="number"
+              formControlName="quantity"
+              (change)="calculateTotal()"
+            />
+            <input
+              class="ce-invoice-input price"
+              type="number"
+              formControlName="price"
+              (change)="calculateTotal()"
+            />
+            <p class="total">
+              {{
+                item.get("quantity")?.value * item.get("price")?.value
+                  | number : "1.2-2"
+              }}
+            </p>
+            <button type="button" class="delete-btn" (click)="removeItem(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <button type="button" class="add-new-item" (click)="addItem()">
+            + Add New Item
+          </button>
         </div>
       </div>
 
-      <!-- form date, payment and descriotion -->
-      <div class="ce-invoice-bill">
-        <div class="ce-invoice-input-fields-wrapper">
-          <div class="ce-invoice-input-fields-full-width">
-            <p class="ce-invoice-label">Invoice Date</p>
-            <input class="ce-invoice-input" />
-          </div>
-          <div class="ce-invoice-input-fields-full-width">
-            <p class="ce-invoice-label">Payment Terms</p>
-            <input class="ce-invoice-input" />
-          </div>
+      <!-- Action Buttons -->
+      <div class="ce-invoice-footer">
+        <button
+          type="button"
+          (click)="closeInvoice()"
+          class="ce-invoice-discard"
+        >
+          {{ mode === "create" ? "Discard" : "Cancel" }}
+        </button>
+        <div class="ce-invoice-footer-buttons">
+          <button
+            type="button"
+            class="ce-invoice-draft"
+            *ngIf="mode === 'create'"
+            (click)="saveInvoice('draft')"
+          >
+            Save as Draft
+          </button>
+          <button
+            type="button"
+            class="ce-invoice-save"
+            (click)="saveInvoice('send')"
+          >
+            {{ mode === "create" ? "Save & Send" : "Save Changes" }}
+          </button>
         </div>
-      </div>
-      <div>
-        <p class="ce-invoice-label">Project Description</p>
-        <input class="ce-invoice-input" />
-      </div>
-
-      <!-- Item list with add item action-->
-      <div class="ce-invoice-items-list-wrapper">
-        <p class="ce-invoice-items-list-title">Item List</p>
-        <div class="ce-invoice-items-list-headings-wrapper">
-          <p class="item-name">Item Name</p>
-          <p class="qty">Qty.</p>
-          <p class="price">Price</p>
-          <p class="total">Total</p>
-        </div>
-        <div class="ce-invoice-items-list-items-wrapper">
-          <input class="ce-invoice-input item-name" />
-          <input class="ce-invoice-input qty" />
-          <input class="ce-invoice-input price" />
-          <p class="total">0.00</p>
-          <button class="delete-btn"><mat-icon>delete</mat-icon></button>
-        </div>
-        <div class="ce-invoice-items-list-items-wrapper">
-          <input class="ce-invoice-input item-name" />
-          <input class="ce-invoice-input qty" />
-          <input class="ce-invoice-input price" />
-          <p class="total">0.00</p>
-          <button class="delete-btn"><mat-icon>delete</mat-icon></button>
-        </div>
-        <button class="add-new-item">+ Add New Item</button>
       </div>
     </div>
-
-    <!-- actions buttons -->
-    <div class="ce-invoice-footer">
-      <button (click)="closeInvoice()" class="ce-invoice-discard">
-        Discard
-      </button>
-      <div class="ce-invoice-footer-buttons">
-        <button class="ce-invoice-draft">Save as Draft</button>
-        <button class="ce-invoice-save">Save & Send</button>
-      </div>
-    </div>
-  </div>
+  </form>
 </div>
